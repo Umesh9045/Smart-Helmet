@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        padding-top: 0%;
+        background: #283149;
+        ;
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        overflow-y: scroll;
+    }
+
+    nav {
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        text-align: center;
+        background-color: #F5F7FF;
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 50px 10px 50px;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    nav .menu-btn i {
+        font-size: 17px;
+        color: #31344b;
+        box-shadow: -3px -3px 7px #ffffff,
+            3px 3px 5px #ceced1;
+        height: 37px;
+        width: 37px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 37px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+
+    nav .menu-btn i:hover {
+
+        box-shadow: inset -3px -3px 7px #ffffff,
+            inset 3px 3px 5px #ceced1;
+        color: #008CBA;
+    }
+
+    nav .logo {
+        color: black;
+        font-family: 'Sofia';
+        font-size: 28px;
+        text-align: center;
+        width: 100%;
+
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+
+    #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    }
+
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    nav ul li a {
+        width: 100%;
+        color: #f2f2f2;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 8px 15px;
+        margin-left: -100%;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked~ul li a {
+        margin-left: 0px;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+        background: none;
+        color: cyan;
+    }
+
+    @media (max-width: 1000px) {
+        nav {
+            padding-right: 10px;
+            padding-left: 1px;
+
+        }
+
+        section {
+            padding-top: 8%;
+        }
+    }
+
+    @media (max-width: 370px) {
+        nav .logo {
+            font-size: 24px;
+        }
+    }
+
+
+    .about .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .about .row .image {
+        flex: 1 1 40rem;
+    }
+
+    .about .row .image img {
+        width: 100%;
+    }
+
+    section {
+        padding: 3rem 9%;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">Armor Feedback and Inquiry</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="feature.html">Feature</a></li>
+            <li><a href="shop1.html" target="_blank">Shop</a></li>
+            <li><a href="login.html" target="_blank">Login</a></li>
+            <li><a href="contact.html">Contact & Feeback</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br>
+    <section class="about" id="about">
+        <div class="row">
+            <iframe width="730" height="440" src="https://www.youtube.com/embed/-hXPn-PPdfU"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+</body>
+
+</html>

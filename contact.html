@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        padding-top: 0%;
+        background: #F5F7FF;
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        overflow-y: scroll;
+    }
+
+    nav {
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        text-align: center;
+        background-color: #F5F7FF;
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 50px 10px 50px;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    nav .menu-btn i {
+        font-size: 17px;
+        color: #31344b;
+        box-shadow: -3px -3px 7px #ffffff,
+            3px 3px 5px #ceced1;
+        height: 37px;
+        width: 37px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 37px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+
+    nav .menu-btn i:hover {
+
+        box-shadow: inset -3px -3px 7px #ffffff,
+            inset 3px 3px 5px #ceced1;
+        color: #008CBA;
+    }
+
+    nav .logo {
+        color: black;
+        font-family: 'Sofia';
+        font-size: 28px;
+        text-align: center;
+        width: 100%;
+
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+
+    #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    }
+
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    nav ul li a {
+        width: 100%;
+        color: #f2f2f2;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 8px 15px;
+        margin-left: -100%;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked~ul li a {
+        margin-left: 0px;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+        background: none;
+        color: cyan;
+    }
+
+    @media (max-width: 1000px) {
+        nav {
+            padding-right: 10px;
+            padding-left: 1px;
+
+        }
+
+        section {
+            padding-top: 8%;
+        }
+    }
+
+    @media (max-width: 370px) {
+        nav .logo {
+            font-size: 24px;
+        }
+    }
+
+
+    /*Feedback Form*/
+    section {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: aliceblue;
+        padding: 0.7rem 0.7rem;
+
+    }
+
+
+    .container {
+        max-width: 480px;
+        min-height: 0.8px;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0px 0px 20px #00000020;
+        border-radius: 8px;
+        border: 1px solid lightgray;
+        background-color: white;
+        margin-bottom: 10%;
+    }
+
+    .title {
+        text-align: center;
+        font-family: 'Indie Flower', cursive;
+        font-size: larger;
+        font-weight: bolder;
+    }
+
+    .form-heading {
+        padding: 15px;
+        text-align: center;
+        background-color: #c0eaf7;
+        border-top: 5px solid #337AB7;
+        border-bottom: 5px solid #337AB7;
+        font-size: larger;
+    }
+
+    .form-group {
+        width: 100%;
+        margin: 3px 0;
+        margin-top: 5%;
+    }
+
+
+    .form-group label {
+        font-weight: bold;
+
+        display: inline-block;
+    }
+
+
+    .form-group input {
+        width: 100%;
+        border: 1.5px solid rgba(128, 128, 128, 0.418);
+        padding: 5px;
+        font-size: medium;
+        margin-top: 5px;
+        border-radius: 4px;
+        display: block;
+    }
+
+
+    button.btn {
+        float: none;
+        margin-top: 20px;
+        margin: auto;
+        text-align: center;
+        display: flex;
+
+        border-radius: 4px;
+        padding: 8px 26px;
+        border: none;
+        outline: none;
+        background-color: #008CBA;
+        border: 4px solid #008CBA;
+        font-family: "Montserrat";
+        font-size: 18px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        color: white;
+
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: black;
+    }
+
+    input,
+    textarea {
+        background-color: #f2f2f2;
+    }
+
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        resize: none;
+        border-radius: 2px;
+        margin: 8px;
+        color: rgb(29, 116, 187);
+    }
+
+
+    textarea {
+        height: 75px;
+        resize: none;
+    }
+
+    ::placeholder {
+        color: rgb(29, 116, 187);
+        font-size: medium;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">Armor Feedback and Inquiry</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="feature.html">Feature</a></li>
+            <li><a href="shop1.html" target="_blank">Armor Store</a></li>
+            <li><a href="login.html" target="_blank">Login</a></li>
+            <li><a class="active" href="contact.html">Contact & Feeback</a></li> 
+        </ul>
+    </nav>
+    <br><br><br><br>
+    <section>
+        <br><br><br><br>
+        <div class="container">
+            <!-- form onsubmit="sendEmail(); reset(); return false; method = POST" -->
+            <form action="https://formsubmit.co/2ee9103f77e583b28c8124bc304e8a4b" method="POST">
+                <p class="title"><b>Get In Touch</b> </p>
+                <div class="form-heading">
+                    <b>Contact and Feedback Form</b>
+                </div><br>
+                <input type="hidden" name="_subject" value="Contact and Feedback Request">
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="Email" class="input" placeholder="eg.example@email.com" id="email"
+                        required />
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea type="text" name="Description" class="textarea" id="description" required></textarea>
+                </div>
+                <input type="hidden" name="_captcha" value="false">
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6Le2hDIfAAAAAJi5soUjQcHJ_W8jiHfFtUjpAIu6" required></div>
+                </div>
+                <br>
+                <input type="hidden" name="_next" value="https://umesh9045.github.io/Student-Helpdesk/thanks.html">
+                <button type="submit" value="Submit" class="btn">Submit</button>
+
+            </form>
+
+        </div>
+    </section>
+</body>
+
+</html>
